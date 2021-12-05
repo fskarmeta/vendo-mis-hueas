@@ -72,20 +72,23 @@ const UserMenu = ({ user, mutate }) => {
         {visible && (
           <div className={styles.menu}>
             <Link passHref href={`/user/${user.username}`}>
-              <a className={styles.item}>Profile</a>
+              <a className={styles.item}>Perfil</a>
+            </Link>
+            <Link passHref href="/addproduct">
+              <a className={styles.item}>Agregar Producto</a>
             </Link>
             <Link passHref href="/settings">
-              <a className={styles.item}>Settngs</a>
+              <a className={styles.item}>Configuraciones</a>
             </Link>
             <div className={styles.item} style={{ cursor: 'auto' }}>
               <Container alignItems="center">
-                <span>Theme</span>
+                <span>Tema</span>
                 <Spacer size={0.5} axis="horizontal" />
                 <ThemeSwitcher />
               </Container>
             </div>
             <button onClick={onSignOut} className={styles.item}>
-              Sign out
+              Salir
             </button>
           </div>
         )}
