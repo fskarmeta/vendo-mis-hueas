@@ -6,6 +6,11 @@ export const ValidateProps = {
     email: { type: 'string', minLength: 1 },
     bio: { type: 'string', minLength: 0, maxLength: 160 },
   },
+  product: {
+    title: { type: 'string', minLength: 4, maxLength: 20 },
+    description: { type: 'string', minLength: 10, maxLength: 60 },
+    detail: { type: 'string', minLength: 10, maxLength: 160 },
+  },
   post: {
     content: { type: 'string', minLength: 1, maxLength: 280 },
   },

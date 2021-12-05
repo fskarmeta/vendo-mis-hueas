@@ -1,0 +1,30 @@
+.card {
+  margin: 1rem 0;
+  background: var(--background);
+  border-radius: 5px;
+  border: 1px solid var(--accents-2);
+  padding: 24px;
+}
+
+.wrapper {
+  width: 640px;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.submit {
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--secondary);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  max-width: 100%;
+}

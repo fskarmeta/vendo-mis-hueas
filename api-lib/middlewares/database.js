@@ -24,6 +24,9 @@ async function createIndexes(db) {
       { key: { email: 1 }, unique: true },
       { key: { username: 1 }, unique: true },
     ]),
+    db
+    .collection('products')
+    .createIndexes([{ key: { createdAt: -1 } }, { key: { creatorId: -1 } }]),
   ]);
   indexesCreated = true;
 }
