@@ -40,7 +40,7 @@ const Login = () => {
         mutate({ user: response.user }, false);
         toast.success('Has ingresado.');
       } catch (e) {
-        toast.error('Corre o cotraseña incorrecta');
+        toast.error('Correo o cotraseña incorrecta');
       } finally {
         setIsLoading(false);
       }

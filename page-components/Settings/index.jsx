@@ -30,8 +30,8 @@ const EmailVerify = ({ user }) => {
     <Container className={styles.note}>
       <Container flex={1}>
         <p>
-          <strong>Note:</strong> <span>Your email</span> (
-          <span className={styles.link}>{user.email}</span>) is unverified.
+          <strong>Nota:</strong> <span>Tu correo</span> (
+          <span className={styles.link}>{user.email}</span>) no esta verificado.
         </p>
       </Container>
       <Spacer size={1} axis="horizontal" />
@@ -41,7 +41,7 @@ const EmailVerify = ({ user }) => {
         onClick={verify}
         disabled={status === 'success'}
       >
-        Verify
+        Verificar
       </Button>
     </Container>
   );
@@ -65,7 +65,7 @@ const Auth = () => {
           newPassword: newPasswordRef.current.value,
         }),
       });
-      toast.success('Your password has been updated');
+      toast.success('Tu contraseña ha sido actualizada');
     } catch (e) {
       toast.error(e.message);
     } finally {
@@ -77,20 +77,20 @@ const Auth = () => {
 
   return (
     <section className={styles.card}>
-      <h4 className={styles.sectionTitle}>Password</h4>
+      <h4 className={styles.sectionTitle}>Contraseña</h4>
       <form onSubmit={onSubmit}>
         <Input
           htmlType="password"
           autoComplete="current-password"
           ref={oldPasswordRef}
-          label="Old Password"
+          label="Contraseña antigua"
         />
         <Spacer size={0.5} axis="vertical" />
         <Input
           htmlType="password"
           autoComplete="new-password"
           ref={newPasswordRef}
-          label="New Password"
+          label="Contraseña nueva"
         />
         <Spacer size={0.5} axis="vertical" />
         <Button
@@ -99,7 +99,7 @@ const Auth = () => {
           type="success"
           loading={isLoading}
         >
-          Save
+          Guardar
         </Button>
       </form>
     </section>
@@ -142,7 +142,7 @@ const AboutYou = ({ user, mutate }) => {
           body: formData,
         });
         mutate({ user: response.user }, false);
-        toast.success('Your profile has been updated');
+        toast.success('Tu perfil ha sido actualizado');
       } catch (e) {
         toast.error(e.message);
       } finally {
@@ -162,19 +162,19 @@ const AboutYou = ({ user, mutate }) => {
 
   return (
     <section className={styles.card}>
-      <h4 className={styles.sectionTitle}>About You</h4>
+      <h4 className={styles.sectionTitle}>Sobre ti</h4>
       <form onSubmit={onSubmit}>
-        <Input ref={usernameRef} label="Your Username" />
+        <Input ref={usernameRef} label="Tu nombre de usuario" />
         <Spacer size={0.5} axis="vertical" />
-        <Input ref={nameRef} label="Your Name" />
+        <Input ref={nameRef} label="Tu nombre" />
         <Spacer size={0.5} axis="vertical" />
-        <Textarea ref={bioRef} label="Your Bio" />
+        <Textarea ref={bioRef} label="Tu Biografía" />
         <Spacer size={0.5} axis="vertical" />
-        <span className={styles.label}>Your Avatar</span>
+        <span className={styles.label}>Tu imágen de perfil</span>
         <div className={styles.avatar}>
           <Avatar size={96} username={user.username} url={avatarHref} />
           <input
-            aria-label="Your Avatar"
+            aria-label="Tu imágen de perfil"
             type="file"
             accept="image/*"
             ref={profilePictureRef}
@@ -188,7 +188,7 @@ const AboutYou = ({ user, mutate }) => {
           type="success"
           loading={isLoading}
         >
-          Save
+          Guardar
         </Button>
       </form>
     </section>

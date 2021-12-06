@@ -47,7 +47,7 @@ const UserMenu = ({ user, mutate }) => {
       await fetcher('/api/auth', {
         method: 'DELETE',
       });
-      toast.success('You have been signed out');
+      toast.success('Has terminado la sesión');
       mutate({ user: null });
     } catch (e) {
       toast.error(e.message);
@@ -109,7 +109,7 @@ const Nav = () => {
           justifyContent="space-between"
         >
           <Link href="/">
-            <a className={styles.logo}>Vendo mis hueas</a>
+            <a className={styles.logo}>VENDO MIS WEAS</a>
           </Link>
           <Container>
             {user ? (

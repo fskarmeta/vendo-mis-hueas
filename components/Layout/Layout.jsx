@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Vendo mis hueas</title>
+        <title>Vendo mis weas</title>
         <meta
           key="viewport"
           name="viewport"
