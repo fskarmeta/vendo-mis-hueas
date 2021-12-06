@@ -19,7 +19,7 @@ export async function sendMail({ from, to, subject, html }) {
     });
   } catch (e) {
     console.error(e);
-    throw new Error(`Could not send email: ${e.message}`);
+    throw new Error(`No se pudo enviar un correo: ${e.message}`);
   }
 }
 

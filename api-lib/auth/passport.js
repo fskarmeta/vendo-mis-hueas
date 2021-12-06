@@ -19,7 +19,7 @@ passport.use(
     async (req, email, password, done) => {
       const user = await findUserWithEmailAndPassword(req.db, email, password);
       if (user) done(null, user);
-      else done(null, false, { message: 'Email or password is incorrect' });
+      else done(null, false, { message: 'El correo o la contraseña es incorrecta' });
     }
   )
 );

@@ -125,13 +125,13 @@ const Nav = () => {
                     variant="ghost"
                     color="link"
                   >
-                    Log in
+                    Iniciar Sesión
                   </ButtonLink>
                 </Link>
                 <Spacer axis="horizontal" size={0.25} />
                 <Link passHref href="/sign-up">
                   <Button size="small" type="success">
-                    Sign Up
+                    Registrarse
                   </Button>
                 </Link>
               </>

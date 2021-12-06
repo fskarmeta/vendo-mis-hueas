@@ -40,19 +40,18 @@ const ForgetPasswordIndex = () => {
           <>
             <h1 className={styles.title}>Check your inbox</h1>
             <p className={styles.subtitle}>
-              An email has been sent{' '}
+              Un correo ha sido enviado{' '}
               <Text as="span" color="link">
                 {email}
               </Text>
-              . Please follow the link in that email to reset your password.
+              . Por favor ingresa al link que te enviamos a tu correo
             </p>
           </>
         ) : (
           <>
             <h1 className={styles.title}>Forget Password</h1>
             <p className={styles.subtitle}>
-              Enter the email address associated with your account, and
-              we&apos;ll send you a link to reset your password.
+              Ingresa el correo asociado a tu cuenta y te enviaremos un link para que puedas reestablecer tu contraseña.
             </p>
             <Spacer size={1} />
             <form onSubmit={onSubmit}>
@@ -60,8 +59,8 @@ const ForgetPasswordIndex = () => {
                 ref={emailRef}
                 htmlType="email"
                 autoComplete="email"
-                placeholder="Email Address"
-                ariaLabel="Email Address"
+                placeholder="Correo electrónico"
+                ariaLabel="Correo electrónico"
                 size="large"
                 required
               />
@@ -73,7 +72,7 @@ const ForgetPasswordIndex = () => {
                 size="large"
                 loading={status === 'loading'}
               >
-                Continue
+                Continuar
               </Button>
             </form>
           </>
@@ -81,7 +80,7 @@ const ForgetPasswordIndex = () => {
         <Spacer size={0.25} axis="vertical" />
         <Link href="/login" passHref>
           <ButtonLink type="success" size="large" variant="ghost">
-            Return to login
+            Retornar al ingreso
           </ButtonLink>
         </Link>
       </div>

@@ -38,9 +38,9 @@ const Login = () => {
           }),
         });
         mutate({ user: response.user }, false);
-        toast.success('You have been logged in.');
+        toast.success('Has ingresado.');
       } catch (e) {
-        toast.error('Incorrect email or password.');
+        toast.error('Corre o cotraseña incorrecta');
       } finally {
         setIsLoading(false);
       }
@@ -51,14 +51,14 @@ const Login = () => {
   return (
     <Wrapper className={styles.root}>
       <div className={styles.main}>
-        <h1 className={styles.title}>Login to App</h1>
+        <h1 className={styles.title}>Ingresar a vendo mis hueas</h1>
         <form onSubmit={onSubmit}>
           <Input
             ref={emailRef}
             htmlType="email"
             autoComplete="email"
-            placeholder="Email Address"
-            ariaLabel="Email Address"
+            placeholder="Correo electrónico"
+            ariaLabel="Correo electrónico"
             size="large"
             required
           />
@@ -67,8 +67,8 @@ const Login = () => {
             ref={passwordRef}
             htmlType="password"
             autoComplete="current-password"
-            placeholder="Password"
-            ariaLabel="Password"
+            placeholder="Contraseña"
+            ariaLabel="Contraseña"
             size="large"
             required
           />
@@ -80,12 +80,12 @@ const Login = () => {
             size="large"
             loading={isLoading}
           >
-            Log in
+            Ingresar
           </Button>
           <Spacer size={0.25} axis="vertical" />
           <Link href="/forget-password" passHref>
             <ButtonLink type="success" size="large" variant="ghost">
-              Forget password
+              Olvidé mi contraseña
             </ButtonLink>
           </Link>
         </form>
@@ -93,7 +93,7 @@ const Login = () => {
       <div className={styles.footer}>
         <Link href="/sign-up" passHref>
           <TextLink color="link" variant="highlight">
-            Don&apos;t have an account? Sign Up
+            ¿No tienes una cuenta? Registrate
           </TextLink>
         </Link>
       </div>

@@ -33,7 +33,7 @@ handler.put(
 
     if (!success) {
       res.status(401).json({
-        error: { message: 'The old password you entered is incorrect.' },
+        error: { message: 'Tu contraseña antigua es incorrecta' },
       });
       return;
     }

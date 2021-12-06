@@ -53,6 +53,7 @@ handler.patch(
         width: 512,
         height: 512,
         crop: 'fill',
+        folder: 'vendo-mis-hueas/profile'
       });
       profilePicture = image.secure_url;
     }
