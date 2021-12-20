@@ -74,7 +74,7 @@ const UserMenu = ({ user, mutate }) => {
             <Link passHref href={`/user/${user.username}`}>
               <a className={styles.item}>Perfil</a>
             </Link>
-            <Link passHref href="/addproduct">
+            <Link passHref href="/add-product">
               <a className={styles.item}>Agregar Producto</a>
             </Link>
             <Link passHref href="/settings">
