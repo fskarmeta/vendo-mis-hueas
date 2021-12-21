@@ -94,7 +94,7 @@ export const AddProduct = () => {
               size={96}
               username="product-thumbnail"
               url={thumbnailRef}
-              product
+              isProduct
             />
             <input
               aria-label="Imágen miniatura del producto"
@@ -114,7 +114,7 @@ export const AddProduct = () => {
                     size={96}
                     username="product-thumbnail"
                     url={image}
-                    product
+                    isProduct
                   />
                   <input
                     aria-label="Imágen miniatura del producto"

@@ -1,9 +1,9 @@
 import styles from './Avatar.module.css';
 
-const Avatar = ({ size, username, url, product }) => {
+const Avatar = ({ size, username, url, isProduct }) => {
   return (
     <img
-      className={product ? styles.product: styles.avatar}
+      className={isProduct ? styles.product: styles.avatar}
       src={url || '/images/default_user.jpg'}
       alt={username}
       width={size}
