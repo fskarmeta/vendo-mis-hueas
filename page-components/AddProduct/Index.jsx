@@ -13,7 +13,7 @@ export const AddProduct = () => {
   const description = useRef();
   const detail = useRef();
   const thumbnailPictureRef = useRef();
-  const productImages = useRef(['', '', '', '', '']);
+  const productImages = useRef([]);
   const [thumbnailRef, setThumbnailRef] = useState('');
   const [productImagesRefs, setProductImagesRefs] = useState([
     '',
@@ -36,18 +36,15 @@ export const AddProduct = () => {
   const onProductImageChange = (i) =>
     useCallback(
       (e) => {
-        console.log(e, i);
         const file = e.currentTarget.files?.[0];
         if (!file) return;
         const reader = new FileReader();
         const refsCopy = [...productImagesRefs];
-        console.log('refsCopt', refsCopy);
         reader.onload = (l) => {
           refsCopy[i] = l.currentTarget.result;
           setProductImagesRefs(refsCopy);
         };
         reader.readAsDataURL(file);
-        console.log('imgaesref', productImages);
       },
       [productImagesRefs]
     );
@@ -57,17 +54,27 @@ export const AddProduct = () => {
   const onSubmit = useCallback(async (e) => {
     e.preventDefault();
     try {
+      if (!thumbnailPictureRef.current.value)
+        return toast.error('Debes agregar una imagen de portada');
+      if (!productImagesRefs.some((r) => r))
+        return toast.error('Agrega al menos una imagen del producto');
       setIsLoading(true);
-      const body = {
-        title: title.current.value,
-        description: description.current.value,
-        detail: detail.current.value,
-      };
-      console.log(body);
+      const formData = new FormData();
+      formData.append('title', title.current.value);
+      formData.append('description', description.current.value);
+      formData.append('detail', detail.current.value);
+      formData.append('thumbnail', thumbnailPictureRef.current.files[0]);
+
+      const pI = productImages.current
+        .filter((r) => r.value)
+        .map((r) => r.files[0]);
+      for (let i = 0; i < pI.length; i++) {
+        formData.append(`productImages`, pI[i]);
+      }
+
       await fetcher('/api/product', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
+        body: formData,
       });
       toast.success('Has agregado el producto exitosamente');
     } catch (e) {
@@ -88,7 +95,7 @@ export const AddProduct = () => {
           <Spacer size={0.5} axis="vertical" />
           <Textarea ref={detail} label="Detalle" />
           <Spacer size={0.5} axis="vertical" />
-          <span className={styles.label}>Imágen miniatura del producto</span>
+          <span className={styles.label}>Imágen de portada</span>
           <div className={styles.avatar}>
             <Avatar
               size={96}

@@ -172,7 +172,7 @@ const AboutYou = ({ user, mutate }) => {
         <Spacer size={0.5} axis="vertical" />
         <span className={styles.label}>Tu imágen de perfil</span>
         <div className={styles.avatar}>
-          <Avatar size={96} username={user.username} url={avatarHref}/>
+          <Avatar size={96} username={user.username} url={avatarHref} />
           <input
             aria-label="Tu imágen de perfil"
             type="file"
