@@ -9,6 +9,7 @@ const handler = nc(ncOpts);
 handler.use(database);
 
 handler.get(async (req, res) => {
+  console.log(req.query);
   const posts = await findPosts(
     req.db,
     req.query.before ? new Date(req.query.before) : undefined,

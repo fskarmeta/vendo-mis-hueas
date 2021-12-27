@@ -1,5 +1,5 @@
 import { ValidateProps } from '@/api-lib/constants';
-import { insertProduct, updateProductById } from '@/api-lib/db';
+import { insertProduct, updateProductById, findProducts } from '@/api-lib/db';
 import { auths, database, validateBody } from '@/api-lib/middlewares';
 import { v2 as cloudinary } from 'cloudinary';
 import { ncOpts } from '@/api-lib/nc';
@@ -26,6 +26,18 @@ if (process.env.CLOUDINARY_URL) {
 
 handler.use(database, ...auths);
 
+handler.get(async (req, res) => {
+  console.log('HOLIWIS');
+  const product = await findProducts(
+    req.db,
+    req.query.before ? new Date(req.query.before) : undefined,
+    req.query.by,
+    req.query.limit ? parseInt(req.query.limit, 10) : undefined
+  );
+
+  res.json({ product });
+});
+
 handler.post(
   upload.fields([
     { name: 'thumbnail', maxCount: 1 },
@@ -49,6 +61,8 @@ handler.post(
       description: req.body.description,
       detail: req.body.detail,
       creatorId: req.user._id,
+      authorized: false,
+      sold: false,
     });
 
     const productId = product._id;

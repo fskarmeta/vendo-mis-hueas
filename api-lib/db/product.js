@@ -27,3 +27,28 @@ export async function updateProductById(db, id, data) {
     )
     .then(({ value }) => value);
 }
+
+export async function findProducts(db, before, by, limit = 10) {
+  return db
+    .collection('products')
+    .aggregate([
+      {
+        $match: {
+          ...(by && { creatorId: new ObjectId(by) }),
+          ...(before && { createdAt: { $lt: before } }),
+        },
+      },
+      { $sort: { _id: -1 } },
+      { $limit: limit },
+      {
+        $lookup: {
+          from: 'users',
+          localField: 'creatorId',
+          foreignField: '_id',
+          as: 'creator',
+        },
+      },
+      { $unwind: '$creator' },
+    ])
+    .toArray();
+}
